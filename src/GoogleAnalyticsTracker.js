@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import { GoogleAnalyticsBridge } from './NativeBridges';
 
 const DEFAULT_DISPATCH_TIMEOUT = 15000;
@@ -200,7 +201,7 @@ export class GoogleAnalyticsTracker {
 
     var dimensionIndex;
     if( typeof dimension === 'string' ) {
-      dimensionIndex = this.customDimensionsFieldsIndexMap[dimension]
+      dimensionIndex = Platform.OS === 'ios' ? this.customDimensionsFieldsIndexMap[dimension] ? dimension
     } else if ( typeof dimension === 'number' ) {
       dimensionIndex = dimension
     }
