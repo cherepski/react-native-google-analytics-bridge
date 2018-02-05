@@ -201,7 +201,7 @@ export class GoogleAnalyticsTracker {
 
     var dimensionIndex;
     if( typeof dimension === 'string' ) {
-      dimensionIndex = Platform.OS === 'ios' ? this.customDimensionsFieldsIndexMap[dimension] ? dimension
+      dimensionIndex = Platform.OS === 'ios' ? this.customDimensionsFieldsIndexMap[dimension] : dimension
     } else if ( typeof dimension === 'number' ) {
       dimensionIndex = dimension
     }
