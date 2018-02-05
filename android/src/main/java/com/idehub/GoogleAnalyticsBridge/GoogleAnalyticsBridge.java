@@ -291,6 +291,16 @@ public class GoogleAnalyticsBridge extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void setCustomDimension(String trackerId, String key, String value)
+    {
+        Tracker tracker = getTracker(trackerId);
+
+        if (tracker != null) {
+            tracker.set(String.format("&%s", key), value);
+        }
+    }
+
+    @ReactMethod
     public void trackSocialInteraction(String trackerId, String network, String action, String targetUrl)
     {
         Tracker tracker = getTracker(trackerId);
